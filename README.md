@@ -1,14 +1,5 @@
 # shiny_beedata
 
----
-title: "Final Paper"
-author: "Michaela Mulhearn"
-date: "12/5/2021"
-output:
-  html_document: default
-  pdf_document: default
----
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
