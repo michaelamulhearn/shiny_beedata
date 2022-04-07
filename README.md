@@ -1,45 +1,5 @@
 # shiny_beedata
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-```
-
-```{r, include=FALSE}
-library(readr)
-library(glue)
-library(stringr)
-library(dplyr) # for mutate
-library(ggplot2) # library for ggplot
-library(hrbrthemes) # for theme
-
-clean_bee_data <- function(a_name){
-
-  # create a file name
-  filename <- glue("~/Desktop/data_science/OneDrive - University of Massachusetts Boston/biol_355_2021_fall/final/bee_data/imidacloprid effects on native bees/data/{a_name}.csv")
-
-  # read file name that was created, take care of the NAs
-  read_my_file <- read_csv(filename, na = ".") %>%
-    mutate(`bee species` =
-             str_replace_all(`bee species`, c(`BEMBIX` = "Bembix",
-                                              `BICYRTES` = "Bicyrtes",
-                                              `D Heteropoda` = "Dieunomia heteropoda",
-                                              `M bimaculata` = "Melissodes bimaculata",
-                                              `M communis` = "Melissodes communis",
-                                              `M xylocopoides` = "Megachile xylocopoides",
-                                              `MELISSODES` = "Melissodes",
-                                              `MTAUREA` = "Melitoma taurea",
-                                              `P bombiformis` = "Ptilothrix bombiformis",
-                                              `T concavus` = "Triepeolus concavus",
-                                              `X strenua` = "Xenoglossa strenua")))
-
-
-
-  return(read_my_file)
-}
-
-beetox_data <- clean_bee_data("beetox_data")
-```
-
 ## Introduction 
 
 The data set that I am using represents the individual bee responses of different concentrations of the insecticide imidacloprid, under controlled laboratory conditions.  This data was obtained from research performed in South Mississippi, Pearl River County.   
